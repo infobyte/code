@@ -1,0 +1,28 @@
+-- ISR - Infobyte Security Research
+-- | ISR-gvirtual.pl | www.infobyte.com.ar |
+
+..:: CONFIGURATION
+
+You have to set the variable LOCAL_GOOGLE_KEY with your Google Web APIs key.
+More information: http://www.google.com/apis/
+
+..:: DESCRIPTION
+
+Simple google api app to search virtual host of a website
+
+Example:
+# ./ISR-gvirtual.pl -l www.microsoft.com -o gvirtual.microsoft.log
+
+..:: REQUIREMENTS
+
+1 - Perl Modules:
+    - Net::Google
+    - Getopt::Std
+
+..:: DOWNLOAD
+
+http://www.infobyte.com.ar/development.html
+
+..:: AUTHOR
+Francisco Amato 
+famato+at+infobyte+dot+com+dot+ar
